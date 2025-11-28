@@ -6,13 +6,13 @@ from src.database import init_db
 from src.onboarding import FileInput, onboard_file
 
 
-async def onboard(thread_id: str = "example-thread-id"):
+async def onboard(fileset_id: str = "example-fileset-id"):
     logger = logging.getLogger(__name__)
 
     # Set up basic logging
     logging.basicConfig(level=logging.INFO)
 
-    logger.info("Starting chi2 PDF onboarding...")
+    logger.info("Starting PDF onboarding...")
 
     # Initialize database
     await init_db()
@@ -35,7 +35,7 @@ async def onboard(thread_id: str = "example-thread-id"):
 
             # Onboard the file
             logger.info("Starting PDF onboarding process...")
-            file_record = await onboard_file(file_input, thread_id)
+            file_record = await onboard_file(file_input, fileset_id)
 
             logger.info(f"✅ Successfully onboarded PDF with ID: {file_record.id}")
             logger.info(f"Description: {file_record.description}")
@@ -46,6 +46,6 @@ async def onboard(thread_id: str = "example-thread-id"):
 
 
 if __name__ == "__main__":
-    thread_id = "test-thread"
+    fileset_id = "test-fileset"
 
-    asyncio.run(onboard(thread_id))
+    asyncio.run(onboard(fileset_id))

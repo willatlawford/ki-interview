@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Optional
 
-from sqlmodel import JSON, Field, Relationship, SQLModel
+from sqlmodel import Field, Relationship, SQLModel
 
 
 class File(SQLModel, table=True):
@@ -9,7 +9,7 @@ class File(SQLModel, table=True):
 
     id: int | None = Field(default=None, primary_key=True)
     filename: str = Field(index=True)
-    thread_id: str = Field(index=True)
+    fileset_id: str = Field(index=True)
     file_type: str
     description: str | None = None
     created_at: datetime = Field(default_factory=datetime.now)
@@ -26,7 +26,6 @@ class Page(SQLModel, table=True):
     page_number: int
     ocr_text: str | None = None
     visual_inspection: str | None = None
-    grid_content: list[list[str]] | None = Field(default=None, sa_type=JSON)
     created_at: datetime = Field(default_factory=datetime.now)
 
     # Relationships

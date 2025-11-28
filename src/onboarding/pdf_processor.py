@@ -15,13 +15,13 @@ from src.onboarding.prompts import DOCUMENT_SUMMARY_PROMPT, VISUALLY_ANALYSE_PAG
 from src.settings import settings
 
 
-async def onboard_pdf(file_input: FileInput, thread_id: str) -> File:
+async def onboard_pdf(file_input: FileInput, fileset_id: str) -> File:
     """
     Process a PDF file through the complete onboarding pipeline.
 
     Args:
         file_input: FileInput containing file information
-        thread_id: Thread identifier for chat interface
+        fileset_id: Fileset identifier for grouping files
 
     Returns:
         File: The created and processed File record
@@ -31,7 +31,7 @@ async def onboard_pdf(file_input: FileInput, thread_id: str) -> File:
     async with get_async_db_session() as session:
         try:
             # 1. Create file record
-            file_record = File(filename=file_input.filename, thread_id=thread_id, file_type="pdf")
+            file_record = File(filename=file_input.filename, fileset_id=fileset_id, file_type="pdf")
             session.add(file_record)
             await session.flush()  # Get ID without full commit
 
