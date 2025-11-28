@@ -18,7 +18,7 @@ async def onboard(fileset_id: str = "example-fileset-id"):
     await init_db()
 
     for filename in [
-        # "beazley_annual_report_2024.pdf",
+        "beazley_annual_report_2024.pdf",
         "brit_annual_report_2024.pdf",
         "travelers_annual_report_2024.pdf",
     ]:
@@ -46,6 +46,4 @@ async def onboard(fileset_id: str = "example-fileset-id"):
 
 
 if __name__ == "__main__":
-    fileset_id = "test-fileset"
-
-    asyncio.run(onboard(fileset_id))
+    asyncio.run(onboard("test-fileset"))
