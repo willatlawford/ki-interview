@@ -1,7 +1,9 @@
 ## Project Overview
 
-This repo allows onboarding of pdfs to a context store. 
-This onboarding has already been run on the files provided in `files/` and db.sqlite created. This will be provided seperately as `db.sqlite.zip` - please extract this to root of the repo.
+This repo allows onboarding of pdfs to a context store - db.sqlite.
+
+- For the purposes of interview, db.sqlite has already been created, and will be provided as `db.sqlite.zip` - please extract this to root of the repo. (This saves installing OS packages, and waiting 5 mins for the script to run.)
+- The files loaded are in `files/` and are financial reports for 3 different syndicates in 2024.
 
 It is intended that the candidate builds an agent for answering questions using that store.
 Use of Agentic Coding Assistants is encouraged for this task.
