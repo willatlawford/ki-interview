@@ -1,7 +1,7 @@
-from sqlmodel import SQLModel
+from pydantic import BaseModel
 
 
-class FileInput(SQLModel):
+class FileInput(BaseModel):
     filename: str
     file_path: str
     content_type: str | None = None

@@ -1,8 +1,7 @@
 ## Project Overview
 
 This repo allows onboarding of pdfs to a context store. 
-This onboarding has already been run to create db.sqlite.
-(db.sqlite.zip will be provided separately so you can skip running the onboarding code.)
+This onboarding has already been run on the files provided in `files/` and db.sqlite created. This will be provided seperately as `db.sqlite.zip` - please extract this to root of the repo.
 
 It is intended that the candidate builds an agent for answering questions using that store.
 Use of Agentic Coding Assistants is encouraged for this task.
@@ -16,9 +15,9 @@ Use of Agentic Coding Assistants is encouraged for this task.
 3. (Begin to) develop a frontend for this agent.
 
 ### Database
-- Database is automatically initialized on first run of main.py
 - SQLite database file: `db.sqlite`
 - Tables: files, pages, page_images
+- Example queries via sqlalchemy shown in snippet.py
 
 ## Architecture
 
@@ -31,7 +30,6 @@ Use of Agentic Coding Assistants is encouraged for this task.
 
 2. **Models** (`src/models/`)
    - `db.py` - SQLModel entities: File, Page, PageImage
-   - `onboarding.py` - Pydantic models for API/input validation
 
 3. **Onboarding System** (`src/onboarding/`)
    - `router.py` - Main entry point with file type detection
@@ -40,10 +38,8 @@ Use of Agentic Coding Assistants is encouraged for this task.
 ### Configuration
 
 Environment variables (`.env` file):
-- `AZURE_OPENAI_API_KEY` - Required Azure OpenAI API key
-- `AZURE_OPENAI_ENDPOINT` - Default: https://tnccc-openai.openai.azure.com/
-- `AZURE_OPENAI_DEPLOYMENT_NAME` - Default: gpt4o
-- `DATABASE_URL` - Default: sqlite+aiosqlite:///chi2.db
+- `ANTHROPIC_API_KEY` - Required Azure OpenAI API key
+- `DATABASE_URL` - Default: sqlite+aiosqlite:///db.sqlite
 - `MAX_CONCURRENCY` - Default: 20 (concurrent visual analysis tasks)
 
 ### Dependencies

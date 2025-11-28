@@ -3,8 +3,7 @@ import logging
 import os
 
 from src.database import init_db
-from src.models.onboarding import FileInput
-from src.onboarding import onboard_file
+from src.onboarding import FileInput, onboard_file
 
 
 async def onboard(thread_id: str = "example-thread-id"):

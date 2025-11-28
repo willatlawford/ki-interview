@@ -10,7 +10,7 @@ from pdf2image import convert_from_path
 from src.database import get_async_db_session
 from src.llms import get_text_model, get_vision_model
 from src.models.db import File, Page, PageImage
-from src.models.onboarding import FileInput
+from src.onboarding.models import FileInput
 from src.onboarding.prompts import DOCUMENT_SUMMARY_PROMPT, VISUALLY_ANALYSE_PAGE_PROMPT
 from src.settings import settings
 

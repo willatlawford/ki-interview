@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 from src.models.db import File
-from src.models.onboarding import FileInput
+from src.onboarding.models import FileInput
 from src.onboarding.pdf_processor import onboard_pdf
 
 
